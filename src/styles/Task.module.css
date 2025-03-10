@@ -9,9 +9,45 @@
     border-radius: 0.5rem;
 }
 
+.checkboxContainer {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.hiddenCheckbox {
+    display: none;
+}
+
+.customCheckbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.25rem;
+    width: 1.25rem;
+    border: 2px solid #eab308;
+    border-radius: 0.25rem;
+}
+
+.customCheckbox.checked {
+    background-color: #eab308;
+    color: white;
+}
+
+.customCheckbox.unchecked {
+    background-color: transparent;
+    color: transparent;
+}
+
 .taskText {
     flex: 1;
     overflow-wrap: break-word;
     white-space: normal;
     max-width: 280px;
+}
+
+.taskText.done {
+    text-decoration: line-through;
+    color: gray;
 }

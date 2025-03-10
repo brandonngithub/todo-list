@@ -11,6 +11,14 @@ function List() {
     setTaskItems([...taskItems, { text, done: false }]);
   };
 
+  function toggleDone(index: number): void {
+    setTaskItems(
+      taskItems.map((taskItem, i) =>
+        i === index ? { ...taskItem, done: !taskItem.done } : taskItem
+      )
+    );
+  };
+
   return (
     <div className={styles.listContainer}>
       <h1 className={styles.heading}>To-Do List</h1>
@@ -21,7 +29,9 @@ function List() {
         {taskItems.map((taskItem, index) => (
           <Task
             key={index}
+            index={index}
             taskItem={taskItem}
+            toggleDone={toggleDone}
           />
         ))}
       </ul>
