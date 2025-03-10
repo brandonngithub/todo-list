@@ -19,6 +19,10 @@ function List() {
     );
   };
 
+  function deleteTask(index: number): void {
+    setTaskItems(taskItems.filter((_, i) => i !== index));
+  };
+
   return (
     <div className={styles.listContainer}>
       <h1 className={styles.heading}>To-Do List</h1>
@@ -31,6 +35,7 @@ function List() {
             key={index}
             index={index}
             taskItem={taskItem}
+            deleteTask={deleteTask}
             toggleDone={toggleDone}
           />
         ))}

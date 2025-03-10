@@ -1,10 +1,12 @@
 import styles from "../styles/Task.module.css";
 import { TaskItemProps } from "../schemas/task-item-props";
+import { MdDelete } from "react-icons/md";
 import { ImCheckmark } from "react-icons/im";
 
 function Task({
   index,
   taskItem,
+  deleteTask,
   toggleDone,
 }: TaskItemProps) {
   return (
@@ -30,6 +32,13 @@ function Task({
       >
         {taskItem.text}
       </span>
+      <button
+        onClick={() => deleteTask(index)}
+        className={`${styles.button} ${styles.deleteButton}`}
+        aria-label="Delete"
+      >
+        <MdDelete />
+      </button>
     </li>
   );
 };

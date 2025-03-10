@@ -51,3 +51,11 @@
     text-decoration: line-through;
     color: gray;
 }
+
+.deleteButton {
+    background-color: #ef4444;
+}
+
+.deleteButton:active {
+    background-color: #b91c1c;
+}
