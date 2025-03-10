@@ -1,3 +1,4 @@
+/* Container for component */
 .taskContainer {
     display: flex;
     flex-wrap: wrap;
@@ -9,6 +10,7 @@
     border-radius: 0.5rem;
 }
 
+/* Checkbox */
 .checkboxContainer {
     display: inline-flex;
     align-items: center;
@@ -17,7 +19,7 @@
 }
 
 .hiddenCheckbox {
-    display: none;
+    display: none; /* hide default checkbox */
 }
 
 .customCheckbox {
@@ -26,12 +28,12 @@
     justify-content: center;
     height: 1.25rem;
     width: 1.25rem;
-    border: 2px solid #eab308;
+    border: 2px solid #eab308; /* golden yellow */
     border-radius: 0.25rem;
 }
 
 .customCheckbox.checked {
-    background-color: #eab308;
+    background-color: #eab308; /* golden yellow */
     color: white;
 }
 
@@ -40,6 +42,7 @@
     color: transparent;
 }
 
+/* Task text */
 .taskText {
     flex: 1;
     overflow-wrap: break-word;
@@ -52,30 +55,34 @@
     color: gray;
 }
 
+/* Edit button */
 .editButton {
-    background-color: #3b82f6;
+    background-color: #3b82f6; /* blue */
 }
 
 .editButton:active {
-    background-color: #1d4ed8;
+    background-color: #1d4ed8; /* darker blue */
 }
 
+/* Delete button */
 .deleteButton {
-    background-color: #ef4444;
+    background-color: #ef4444; /* red */
 }
 
 .deleteButton:active {
-    background-color: #b91c1c;
+    background-color: #b91c1c; /* darker red */
 }
 
+/* Save button */
 .saveButton {
-    background-color: #22c55e;
+    background-color: #22c55e; /* green */
 }
 
 .saveButton:active {
-    background-color: #15803d;
+    background-color: #15803d; /* darker green */
 }
 
+/* Edit input text box */
 .editInput {
     border: 1px solid lightgray;
     padding: 0.25rem;

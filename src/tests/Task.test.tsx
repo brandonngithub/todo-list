@@ -2,17 +2,20 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { vi } from "vitest";
 import Task from "../components/Task";
 
+// Mock the functions
 const mockUpdateTask = vi.fn();
 const mockToggleDone = vi.fn();
 const mockDeleteTask = vi.fn();
 
 describe("Task Component", () => {
+  // Reset mock functions before every test
   beforeEach(() => {
     mockUpdateTask.mockClear();
     mockToggleDone.mockClear();
     mockDeleteTask.mockClear();
   });
 
+  // Test 1: Check if rendering a simple Task component renders the correct text and the edit and delete button are present
   test("renders the task text, edit button, and delete button", () => {
     render(
       <Task
@@ -34,6 +37,7 @@ describe("Task Component", () => {
     expect(deleteButton).toBeInTheDocument();
   });
 
+  // Test 2: Check if the checkbox gets toggled and toggleDone gets called correctly, when the checkbox of a simple Task component is toggled
   test("toggles the checkbox and calls toggleDone", () => {
     render(
       <Task
@@ -47,11 +51,12 @@ describe("Task Component", () => {
 
     const checkboxContainer = screen.getByLabelText("Done");
 
-    fireEvent.click(checkboxContainer);
+    fireEvent.click(checkboxContainer); // click the checkbox of the task
 
     expect(mockToggleDone).toHaveBeenCalledWith(0);
   });
 
+  // Test 3: Check if the input field and save button render correctly, when the Edit button on a simple Task component is clicked
   test("enters editing mode when the edit button is clicked", () => {
     render(
       <Task
@@ -65,7 +70,7 @@ describe("Task Component", () => {
 
     const editButton = screen.getByLabelText("Edit");
 
-    fireEvent.click(editButton);
+    fireEvent.click(editButton); // click the Edit button
 
     const editInput = screen.getByDisplayValue("Test Task");
     const saveButton = screen.getByLabelText("Save");
@@ -74,6 +79,7 @@ describe("Task Component", () => {
     expect(saveButton).toBeInTheDocument();
   });
 
+  // Test 4: Check if editing a simple Task component calls the updateTask function correctly
   test("saves changes when the save button is clicked", () => {
     render(
       <Task
@@ -87,19 +93,20 @@ describe("Task Component", () => {
 
     const editButton = screen.getByLabelText("Edit");
 
-    fireEvent.click(editButton);
+    fireEvent.click(editButton); // click the Edit button
 
     const editInput = screen.getByDisplayValue("Task One");
 
-    fireEvent.change(editInput, { target: { value: "Task One Edited" } });
+    fireEvent.change(editInput, { target: { value: "Task One Edited" } }); // type "Task One Edited" in the edit bar
 
     const saveButton = screen.getByLabelText("Save");
 
-    fireEvent.click(saveButton);
+    fireEvent.click(saveButton); // click the Save button
 
     expect(mockUpdateTask).toHaveBeenCalledWith(0, "Task One Edited");
   });
 
+  // Test 5: Check if deleting a simple Task component calls the deleteTask function correctly
   test("deletes the task when the delete button is clicked", () => {
     render(
       <Task
@@ -113,7 +120,7 @@ describe("Task Component", () => {
 
     const deleteButton = screen.getByLabelText("Delete");
 
-    fireEvent.click(deleteButton);
+    fireEvent.click(deleteButton); // click the Delete button
 
     expect(mockDeleteTask).toHaveBeenCalledWith(0);
   });

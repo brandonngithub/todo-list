@@ -3,13 +3,15 @@ import { useState } from "react";
 import { FormProps } from "../schemas/form-props";
 
 function Input({ createTask }: FormProps) {
+  // State to manage the input field value
   const [text, setText] = useState<string>("");
 
+  // Function to handle form submission
   function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+    e.preventDefault(); // prevent the default form submission behavior
 
     if (!text.trim()) {
-      return;
+      return; // exit early if the input is empty or only contains whitespace
     }
 
     createTask(text);
@@ -20,8 +22,8 @@ function Input({ createTask }: FormProps) {
     <form onSubmit={handleSubmit} className={styles.inputContainer}>
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        value={text} // value tied to text state
+        onChange={(e) => setText(e.target.value)} // update text state as the user types
         className={styles.inputField}
         placeholder="Add a new task..."
       />
