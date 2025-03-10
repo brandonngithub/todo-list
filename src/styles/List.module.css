@@ -1,0 +1,14 @@
+.listContainer {
+    max-width: 28rem;
+    margin: 2.5rem auto;
+    padding: 1rem;
+    border: 1px solid #e5e7eb; /* light gray */
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,17 @@
+.taskContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb; /* light gray */
+    border-radius: 0.5rem;
+}
+
+.taskText {
+    flex: 1;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 280px;
+}
