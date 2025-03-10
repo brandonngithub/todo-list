@@ -11,6 +11,14 @@ function List() {
     setTaskItems([...taskItems, { text, done: false }]);
   };
 
+  function updateTask(index: number, newText: string): void {
+    setTaskItems(
+      taskItems.map((taskItem, i) =>
+        i === index ? { ...taskItem, text: newText } : taskItem
+      )
+    );
+  };
+
   function toggleDone(index: number): void {
     setTaskItems(
       taskItems.map((taskItem, i) =>
@@ -36,6 +44,7 @@ function List() {
             index={index}
             taskItem={taskItem}
             deleteTask={deleteTask}
+            updateTask={updateTask}
             toggleDone={toggleDone}
           />
         ))}

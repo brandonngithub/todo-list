@@ -52,10 +52,32 @@
     color: gray;
 }
 
+.editButton {
+    background-color: #3b82f6;
+}
+
+.editButton:active {
+    background-color: #1d4ed8;
+}
+
 .deleteButton {
     background-color: #ef4444;
 }
 
 .deleteButton:active {
     background-color: #b91c1c;
+}
+
+.saveButton {
+    background-color: #22c55e;
+}
+
+.saveButton:active {
+    background-color: #15803d;
+}
+
+.editInput {
+    border: 1px solid lightgray;
+    padding: 0.25rem;
+    flex-grow: 1;
 }
