@@ -1,11 +1,18 @@
 import styles from "../styles/List.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TaskItem } from "../schemas/task-item";
 import Task from "./Task";
 import Input from "./Input";
 
 function List() {
-  const [taskItems, setTaskItems] = useState<TaskItem[]>([]);
+  const [taskItems, setTaskItems] = useState<TaskItem[]>(() => {
+    const savedTasks = localStorage.getItem("todoList");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(taskItems));
+  }, [taskItems]);
 
   function createTask(text: string): void {
     setTaskItems([...taskItems, { text, done: false }]);
